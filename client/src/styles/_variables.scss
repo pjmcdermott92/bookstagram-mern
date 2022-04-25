@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,900&display=swap&family=Lobster&display=swap');
+
+:root {
+    --color-primary: #6666FF;
+    --color-primary-light: hsl(240, 100%, 90%);
+    --color-danger: #461313;
+    --color-warning: #F1C841;
+    --color-success: #0C690C;
+    --color-dark: #333;
+    --color-light: #CCC;
+    --color-grad-dark: #FE3072;
+    --color-grad-light: #FF5948;
+
+    --font-primary: 'Lato', sans-serif;
+    --font-brand: 'Lobster', cursive;
+}

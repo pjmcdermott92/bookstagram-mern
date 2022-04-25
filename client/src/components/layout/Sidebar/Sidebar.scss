@@ -1,0 +1,107 @@
+.Sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 275px;
+    padding: 5.5rem 1rem 2rem;
+    background-color: #EFEFEF;
+
+    &__closeBtn {
+        position: absolute;
+        top: .75rem;
+        left: 1rem;
+        display: none;
+        border: none;
+        background: none;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+
+    &__actionButton {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        font-size: clamp(1rem, 12vmin, 1.1rem);
+        border-radius: 2rem;
+        transition: 250ms ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0,0,0,0.15);
+        }
+
+        span { margin-left: 1rem; }
+    }
+}
+
+.UserAvatar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: .25rem;
+    border-radius: 2rem;
+    transition: 250ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0,0,0,0.15);
+    }
+
+    &__avatarImg {
+        width: 50px;
+        height: 50px;
+        margin-right: .5rem;
+        background: var(--color-light);
+        border: 3px solid;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+
+    &__avatarDetails {
+        display: flex;
+        flex-direction: column;
+
+        &--username {
+            font: {
+                size: clamp(1.05rem, 12vmin, 1.15rem);
+                weight: 700;
+            }
+        }
+        &--userStatus {
+            color: rgba(0,0,0,0.55);
+
+            & > * { padding-left: .25rem; }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .Sidebar {
+        margin-left: -100%;
+        box-shadow: 0 4px 2px 4px rgba(0,0,0,0.15);
+        z-index: 6000;
+
+        &[data-active='true'] {
+            animation: sidebarSlideIn 500ms ease forwards;
+        }
+
+        &__closeBtn { display: block; }
+    }
+}
+
+@keyframes sidebarSlideIn {
+    0% { margin-left: -100%; }
+    100% { margin-left: 0; }
+}

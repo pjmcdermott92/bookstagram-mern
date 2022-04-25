@@ -1,0 +1,44 @@
+.formGroup {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0 1.5rem;
+    text-align: left;
+
+    &.error input {
+        border-color: #F00;
+        outline-color: #F00;
+
+        &:focus, &:active {
+            border-color: #F00;
+        }
+    }
+
+    input {
+        width: 100%;
+        padding: .5rem .75rem;
+        font: inherit;
+        border: 2px solid #BBB;
+        border-radius: 5px;
+        outline: none;
+
+        &:focus, &:active {
+            border-color: var(--color-primary);
+        }
+    }
+
+    &--toggle-password-btn {
+        position: absolute;
+        top: .6rem;
+        right: .5rem;
+        cursor: pointer;
+        color: #AAA;
+    }
+
+    input:focus + &--toggle-password-btn {
+        color: var(--color-dark);
+    }
+
+    &--error {
+        color: #F00;
+    }
+}

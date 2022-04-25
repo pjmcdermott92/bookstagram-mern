@@ -1,0 +1,49 @@
+.btn {
+    padding: .5rem 1rem;
+    background-color: #CCC;
+    border: 1px solid #CCC;
+    box-shadow: 0 0 1px 1px inset rgba(0,0,0,0.15),
+      0 0 1px 1px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+
+    &:hover { opacity: .85; }
+}
+
+.btn-large {
+    padding: .75rem 1.5rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+}
+
+.btn-primary {
+    background-color: #3492eb;
+    color: #FFF;
+}
+
+.btn-secondary {
+    background-color: #666;
+    color: #FFF;
+}
+
+.btn-danger {
+    background-color: #eb3434;
+    color: #FFF;
+}
+
+.btn-gradient {
+    color: #FFF;
+    background: linear-gradient(to right, #FE3072 0, #FF5948 100%);
+    border-color: #FE3072;
+}
+
+button:disabled, button:disabled:hover {
+    opacity: .25;
+    cursor: not-allowed;
+}

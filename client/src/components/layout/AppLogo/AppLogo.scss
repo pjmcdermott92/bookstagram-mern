@@ -1,0 +1,39 @@
+.AppLogo {
+    max-width: 250px;
+}
+
+.AppLogo a {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+
+    .brandSymbol {
+        display: flex;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        padding-right: .25rem;
+        
+        img { width: 100%; }
+    }
+
+    .brandText {
+        margin: 0;
+        font: {
+            family: var(--font-brand);
+            size: clamp(1.8rem, 25vmin, 2.25rem);
+        }
+        color: var(--color-dark);
+
+        &.light { color: #FFF; }
+
+        &[data-responsive='false'] {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .AppLogo .brandText { display: none; }
+}
