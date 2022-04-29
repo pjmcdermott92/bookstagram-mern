@@ -21,7 +21,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(mongoSanitize());
-app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+        'img-src': ["'self'", "https: data"]
+    }
+}));
 app.use(xss());
 app.use(hpp());
 
