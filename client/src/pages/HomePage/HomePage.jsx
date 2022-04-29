@@ -8,13 +8,12 @@ import './HomePage.scss';
 
 const HomePage = () => {
     const [showSidebar, setShowSidebar] = useState(false);
-    const { isLoading, setIsLoading, setContext, postService } = useAppContext();
+    const { isLoading, setContext, postService } = useAppContext();
 
     useEffect(() => {
         const fetchPosts = async () => {
             await postService.getAllPosts();
             setContext();
-            setIsLoading(false);
         }
         fetchPosts();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -26,7 +25,7 @@ const HomePage = () => {
         <PageHeader setShowSidebar={setShowSidebar} />
         <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
         <main className='contentWrapper'>
-            <h1>{postService.searchQuery?.length > 1
+            <h1>{postService.searchQuery?.length > 0
                     ? `Showing results for: ${postService.searchQuery}`
                     : 'Latest Posts'
             }</h1>

@@ -20,11 +20,12 @@ const BookstagramProvider = ({ children }) => {
     }, []);
 
     const checkIsLoggedIn = async () => {
+        setAuthContext({ ...context, isLoading: true });
         await authService.fetchUserData();
         setAuthContext({ ...context });
     }
     const context = {
-        isLoading: true,
+        isLoading: false,
         setIsLoading: value => setAuthContext({ ...authContext, isLoading: value }),
         authService,
         postService,

@@ -9,13 +9,14 @@ import './PageHeader.scss';
 
 const PageHeader = ({ setShowSidebar }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const { postService, setContext } = useAppContext();
+    const { postService, setContext, setIsLoading } = useAppContext();
     const { openModal } = useModals();
 
     const onSearch = async ({ target: { value } }) => {
         setSearchQuery(value);
         await postService.searchPosts(value);
         setContext();
+        setIsLoading(false);
     }
     
     return (
