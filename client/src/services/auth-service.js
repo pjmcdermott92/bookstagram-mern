@@ -21,7 +21,7 @@ class User {
 
     fetchUserData = async () => {
         try {
-            const res = await api('/users');
+            const res = await api('/api/v1/users');
             if (!res.success) throw new Error(res.message);
             if (!this.isLoggedIn) this.setIsLoggedIn(true);
             this.setUserData(res.data);
@@ -35,7 +35,7 @@ class User {
 class AuthService extends User {
     logOutUser = async () => {
         try {
-            const res = await api('/users/logout');
+            const res = await api('/api/v1/users/logout');
             if (!res.success) throw new Error(res.message);
             this.id = '';
             this.firstName = '';
@@ -52,7 +52,7 @@ class AuthService extends User {
         const body = { email: email.toLowerCase(), password };
 
         try {
-            const res = await api('/users', body, 'POST');
+            const res = await api('/api/v1/users', body, 'POST');
             if (!res.success) throw new Error(res.message);
             this.setIsLoggedIn(true);
             return this.fetchUserData();
@@ -65,7 +65,7 @@ class AuthService extends User {
         const body = { firstName, lastName, email: email.toLowerCase(), password };
 
         try {
-            const res = await api('/users/register', body, 'POST');
+            const res = await api('/api/v1/users/register', body, 'POST');
             if (!res.success) throw new Error(res.message);
             this.setIsLoggedIn(true);
             return this.fetchUserData();
