@@ -8,7 +8,9 @@
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
     "client": "npm start --prefix client",
-    "devStart": "concurrently \"npm run server\" \"npm run client\""
+    "devStart": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run installAll && npm run build --prefix client"
+
   },
   "author": "Patrick McDermott",
   "license": "MIT",
