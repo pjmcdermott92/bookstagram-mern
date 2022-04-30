@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useAlerts } from '../../../providers/BookstagramProvider';
 import './ToasterAlert.scss';
 
@@ -42,6 +43,12 @@ const ToasterAlert = ({ id, type, message }) => {
             <div className='ToasterAlert__progressBar' style={{'--progress': percent}} />
         </div>
     )
+}
+
+ToasterAlert.propTypes ={
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    message: PropTypes.string.isRequired
 }
 
 export default ToasterAlert;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import './AuthModal.scss';
@@ -22,6 +23,10 @@ const AuthModal = ({ close }) => {
         </div>
         </>
     )
+}
+
+AuthModal.propType = {
+    close: PropTypes.func.isRequired
 }
 
 export default AuthModal;

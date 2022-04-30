@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useAppContext } from '../../providers/BookstagramProvider';
-import { useAlerts } from '../../providers/BookstagramProvider';
+import PropTypes from 'prop-types';
+import { useAppContext, useAlerts } from '../../providers/BookstagramProvider';
 import { EMAIL_PATTERN } from '../../constants';
-import FormField from '../../components/layout/FormField/FormField';
-import Loader from '../layout/Loader/Loader';
+import { FormField, Loader } from '../layout';
 
 const INIT_STATE = { email: '', password: '' };
 
@@ -90,6 +89,11 @@ const LoginForm = ({ toggleForm, close }) => {
         </div>
         </>
     );
+}
+
+LoginForm.propTypes = {
+    toggleForm: PropTypes.func.isRequired,
+    close: PropTypes.func.isRequired
 }
 
 export default LoginForm;

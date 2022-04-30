@@ -1,8 +1,6 @@
 import { Navigate } from 'react-router-dom';
-import { useAppContext } from '../../providers/BookstagramProvider';
-import { useModals } from '../../providers/BookstagramProvider';
-import AppLogo from '../../components/layout/AppLogo/AppLogo';
-import Loader from '../../components/layout/Loader/Loader';
+import { useAppContext, useModals } from '../../providers/BookstagramProvider';
+import { AppLogo, Loader } from '../../components/layout';
 import AuthModal from '../../components/AuthModal/AuthModal';
 import './LandingPage.scss';
 

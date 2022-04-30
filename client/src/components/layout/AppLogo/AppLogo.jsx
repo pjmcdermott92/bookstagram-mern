@@ -24,11 +24,13 @@ const AppLogo = ({ type, responsive }) => (
 );
 
 AppLogo.propTypes = {
-    type: PropTypes.string
+    type: PropTypes.string,
+    responsive: PropTypes.bool
 }
 
 AppLogo.defaultProps = {
-    type: 'dark'
+    type: 'dark',
+    responsive: true
 }
 
 export default AppLogo;

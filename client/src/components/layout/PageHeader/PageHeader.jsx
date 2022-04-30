@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAppContext } from '../../../providers/BookstagramProvider';
-import { useModals } from '../../../providers/BookstagramProvider';
+import PropTypes from 'prop-types';
+import { useAppContext, useModals } from '../../../providers/BookstagramProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
 import AppLogo from '../AppLogo/AppLogo';
@@ -55,6 +55,10 @@ const PageHeader = ({ setShowSidebar }) => {
             </div>
         </header>
     )
+}
+
+PageHeader.propTypes = {
+    setShowSidebar: PropTypes.func
 }
 
 export default PageHeader;

@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BookstagramProvider from './providers/BookstagramProvider';
 import PrivateRoute from './components/PrivateRoute';
-import LandingPage from './pages/LandingPage/LandingPage';
-import HomePage from './pages/HomePage/HomePage';
+import { HomePage, LandingPage } from './pages';
 import './styles/root.scss';
 
 const App = () => {

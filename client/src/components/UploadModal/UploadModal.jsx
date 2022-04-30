@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
-import { useAppContext } from '../../providers/BookstagramProvider';
-import { useAlerts } from '../../providers/BookstagramProvider';
-import FormField from '../layout/FormField/FormField';
+import { useAppContext, useAlerts } from '../../providers/BookstagramProvider';
+import { FormField } from '../layout';
 import UploadField from './UploadField';
 import './UploadModal.scss';
 
@@ -96,6 +96,10 @@ const UploadModal = ({ close }) => {
         </div>
         </>
     )
+}
+
+UploadModal.propTypes = {
+    close: PropTypes.func.isRequired
 }
 
 export default UploadModal;

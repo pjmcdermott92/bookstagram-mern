@@ -1,4 +1,5 @@
 import api from '../utils/api';
+import { API_URL } from '../constants';
 
 class User {
     constructor() {
@@ -21,7 +22,7 @@ class User {
 
     fetchUserData = async () => {
         try {
-            const res = await api('/api/v1/users');
+            const res = await api(`${API_URL}/users`);
             if (!res.success) throw new Error(res.message);
             if (!this.isLoggedIn) this.setIsLoggedIn(true);
             this.setUserData(res.data);
@@ -35,7 +36,7 @@ class User {
 class AuthService extends User {
     logOutUser = async () => {
         try {
-            const res = await api('/api/v1/users/logout');
+            const res = await api(`${API_URL}/users/logout`);
             if (!res.success) throw new Error(res.message);
             this.id = '';
             this.firstName = '';
@@ -52,7 +53,7 @@ class AuthService extends User {
         const body = { email: email.toLowerCase(), password };
 
         try {
-            const res = await api('/api/v1/users', body, 'POST');
+            const res = await api(`${API_URL}/users`, body, 'POST');
             if (!res.success) throw new Error(res.message);
             this.setIsLoggedIn(true);
             return this.fetchUserData();
@@ -65,7 +66,7 @@ class AuthService extends User {
         const body = { firstName, lastName, email: email.toLowerCase(), password };
 
         try {
-            const res = await api('/api/v1/users/register', body, 'POST');
+            const res = await api(`${API_URL}/users/register`, body, 'POST');
             if (!res.success) throw new Error(res.message);
             this.setIsLoggedIn(true);
             return this.fetchUserData();

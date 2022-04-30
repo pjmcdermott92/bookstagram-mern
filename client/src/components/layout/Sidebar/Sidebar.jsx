@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
-import { useAppContext } from '../../../providers/BookstagramProvider';
-import { useModals } from '../../../providers/BookstagramProvider';
-import { useAlerts } from '../../../providers/BookstagramProvider';
+import PropTypes from 'prop-types';
+import { useAppContext, useModals, useAlerts } from '../../../providers/BookstagramProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import PromptModal from '../../PromptModal/PromptModal';
@@ -71,6 +70,11 @@ const Sidebar = ({ showSidebar, setShowSidebar}) => {
             </div>
         </aside>
     )
+}
+
+Sidebar.propTypes = {
+    showSidebar: PropTypes.bool,
+    setShowSidebar: PropTypes.func
 }
 
 export default Sidebar;

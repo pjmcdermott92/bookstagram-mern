@@ -1,4 +1,5 @@
 import api from '../utils/api';
+import { API_URL } from '../constants';
 
 class PostService {
     constructor() {
@@ -11,7 +12,7 @@ class PostService {
 
     getAllPosts = async () => {
         try {
-            const res = await api('/api/v1/posts');
+            const res = await api(`${API_URL}/posts`);
             if (!res.success) throw new Error(res.message);
             this.posts = res.data;
             return { success: true, data: this.posts }
@@ -23,7 +24,7 @@ class PostService {
     searchPosts = async (query) => {
         this.searchQuery = query;
         try {
-            const res = await api(`/api/v1/posts?query=${query}`);
+            const res = await api(`${API_URL}/posts?query=${query}`);
             if (!res.success) throw new Error(res.message);
             this.posts = res.data;
             return { success: true, data: this.posts }
@@ -33,14 +34,14 @@ class PostService {
     }
 
     getUploadUrl = async () => {
-        const res = await api('/api/v1/posts/upload/get-url');
+        const res = await api(`${API_URL}/posts/upload/get-url`);
         return res;
     }
 
     savePost = async ({ imageUrl, title }) => {
         const body = {imageUrl, title };
         try {
-            const res = await api('/api/v1/posts/upload', body, 'POST');
+            const res = await api(`${API_URL}/posts/upload`, body, 'POST');
             if (!res.success) throw new Error(res.message);
             this.addPost(res.data);
             return { success: true, data: this.posts };
@@ -52,7 +53,7 @@ class PostService {
     likePost = async id => {
         const postIndex = this.posts.findIndex(post => post._id === id);
         try {
-            const res = await api(`/api/v1/posts/like/${id}`, null, 'PUT');
+            const res = await api(`${API_URL}/posts/like/${id}`, null, 'PUT');
             if (!res.success) throw new Error('Post could not be liked');
             this.posts[postIndex] = res.data;
             return { success: true };
@@ -64,7 +65,7 @@ class PostService {
     unlikePost = async id => {
         const postIndex = this.posts.findIndex(post => post._id === id);
         try {
-            const res = await api(`/api/v1/posts/unlike/${id}`, null, 'PUT');
+            const res = await api(`${API_URL}/posts/unlike/${id}`, null, 'PUT');
             if (!res.success) throw new Error('Could not be unlike post');
             this.posts[postIndex] = res.data;
             return { success: true };
@@ -75,7 +76,7 @@ class PostService {
 
     deletePost = async id => {
         try {
-            const res = await api(`/api/v1/posts/${id}`, null, 'DELETE');
+            const res = await api(`${API_URL}/posts/${id}`, null, 'DELETE');
             if (!res.success) throw new Error(res.message);
             this.posts = this.posts.filter(post => post._id !== id);
             return { success: true };

@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../../providers/BookstagramProvider';
-import PageHeader from '../../components/layout/PageHeader/PageHeader';
-import Sidebar from '../../components/layout/Sidebar/Sidebar';
+import { PageHeader, Sidebar, Loader } from '../../components/layout';
 import PostGrid from '../../components/PostGrid/PostGrid';
-import Loader from '../../components/layout/Loader/Loader';
 import './HomePage.scss';
 
 const HomePage = () => {

@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { useAppContext } from '../../providers/BookstagramProvider';
-import { useAlerts } from '../../providers/BookstagramProvider';
-import { useModals } from '../../providers/BookstagramProvider';
+import PropTypes from 'prop-types';
+import { useAppContext, useAlerts, useModals } from '../../providers/BookstagramProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faEllipsis, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import PromptModal from '../PromptModal/PromptModal';
@@ -101,6 +100,18 @@ const Post = ({ _id, user, avatar, firstName, lastName, imageUrl, title, likes }
             </div>
         </div>
     )
+}
+
+
+Post.propTypes = {
+    _id: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    likes: PropTypes.array.isRequired
 }
 
 export default Post;
