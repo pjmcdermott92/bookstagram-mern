@@ -2,7 +2,7 @@
 
 Bookstagram is a full-stack application built on the MERN Stack (MongoDB, ExpressJS, React, and NodeJS) that allows users to register and upload photos of their latest books.
 
-View a live demo of the application: ['Bookstagram Demo Application'](https://bookstagram-app.herolkuapp.com)
+View a live demo of the application: [Bookstagram Demo Application](https://bookstagram-app.herokuapp.com/)
 
 ### Technologies Used:
 
