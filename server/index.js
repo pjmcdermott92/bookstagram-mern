@@ -21,12 +21,16 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(mongoSanitize());
-// app.use(helmet.contentSecurityPolicy({
-//     useDefaults: true,
-//     directives: {
-//         'img-src': ["'self'", "https: data"]
-//     }
-// }));
+app.use(helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+        // Set helmet security policies to allow foreign URLs for images and upload link
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'default-src': ['\'unsafe-inline\'', '\'self\''],
+        'script-src': ['\'self\'', '\'unsafe-inline\'', '\'unsafe-eval\'', '*'],
+        'img-src': ['\'self\''],
+    },
+}));
 app.use(xss());
 app.use(hpp());
 
