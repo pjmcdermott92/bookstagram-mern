@@ -5,7 +5,6 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/errorHandler');
 const mongoSanitize = require('express-mongo-sanitize');
-const helmet = require('helmet');
 const xss= require('xss-clean');
 const hpp = require('hpp');
 const rateLimt = require('express-rate-limit');
@@ -21,16 +20,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(mongoSanitize());
-app.use(helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-        // Set helmet security policies to allow foreign URLs for images and upload link
-        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-        'default-src': ['\'unsafe-inline\'', '\'self\''],
-        'script-src': ['\'self\'', '\'unsafe-inline\'', '\'unsafe-eval\'', '*'],
-        'img-src': ['\'self\''],
-    },
-}));
 app.use(xss());
 app.use(hpp());
 
