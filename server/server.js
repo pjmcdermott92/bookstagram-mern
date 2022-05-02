@@ -1,4 +1,5 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -10,7 +11,6 @@ const hpp = require('hpp');
 const rateLimt = require('express-rate-limit');
 const app = express();
 
-const PORT = process.env.PORT || 5550;
 const API_PREFIX = '/api/v1';
 
 require('./config/connectDB')();
@@ -43,4 +43,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(errorHandler);
-app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} on Port ${PORT}...`));
+
+if (process.env.NODE_ENV === 'test') {
+    module.exports = app;
+} else {
+    const PORT = process.env.PORT || 5550;
+    
+    app.listen(PORT, () => {
+        console.log(`Server running in ${process.env.NODE_ENV} on Port ${PORT}...`)
+    });
+}

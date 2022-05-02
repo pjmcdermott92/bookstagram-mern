@@ -73,7 +73,7 @@ exports.deletePost = asyncHandler(async (req, res, next) => {
         return next(new ErrorResponse('You are not authorized to delete this post', 403));
 
     const fileKey = post.imageUrl.split('/')[3];
-    const deletedPost = await deleteObject(fileKey);
+    await deleteObject(fileKey);
 
     await post.remove();
     return res.json({ success: true });

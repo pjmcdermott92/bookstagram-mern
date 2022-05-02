@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "installAll": "npm install && cd server && npm install",
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js",
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
     "client": "npm start --prefix client",
     "devStart": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "jest server/test --runInBand --detectOpenHandles",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "author": "Patrick McDermott",
   "license": "MIT",
@@ -31,6 +35,9 @@
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
-    "nodemon": "^2.0.15"
+    "jest": "^28.0.3",
+    "mongodb-memory-server": "^8.5.2",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.3"
   }
 }
