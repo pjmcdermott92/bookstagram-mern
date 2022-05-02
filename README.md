@@ -2,6 +2,8 @@
 
 Bookstagram is a full-stack application built on the MERN Stack (MongoDB, ExpressJS, React, and NodeJS) that allows users to register and upload photos of their latest books.
 
+View a live demo of the application: [Bookstagram Demo Application](https://bookstagram-app.herokuapp.com/)
+
 ### Technologies Used:
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -19,7 +21,6 @@ npm run installAll
 
 This will install all dependencies for the client and the server.
 
-You will need to go into the client folder, open up the package.json, and update the 'proxy' script to http://localhost:5550 in order to make API calls locally in development.
 
 ## Run the Application
 
