@@ -32,6 +32,14 @@ npm run devStart
 
 This command will use the concurrently NPM library to spin up the API server and the client React application on localhost.
 
+### Image Uploads
+
+This application uses the Amazon AWS S3 SDK on the client side to handle the upload of images. First, the client makes a request to the server API to get a secure, one-time upload URL. The upload URL is a temporary URL that will only allow an asset to be uploaded for one minute, before expiring.
+
+As soon as the client receives this URL and the permanent imageUrl, it will make a PUT request to the Upload URL and send the asset to the S3 bucket. Once the asset is uploaded to the S3 bucket, the client will make another POST request to the server to save the image URL and the user-provided title to the database.
+
+By handling the upload of the file directly to AWS from the client, we are avoiding the need to upload the image to our server, which increases performance and reduces bandwidth consumption on the server.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
